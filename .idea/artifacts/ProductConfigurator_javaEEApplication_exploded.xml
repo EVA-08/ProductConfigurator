@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="ProductConfigurator:javaEEApplication exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProductConfigurator_javaEEApplication_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ProductConfigurator/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="ProductConfigurator.war">
+        <element id="artifact" artifact-name="ProductConfigurator:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

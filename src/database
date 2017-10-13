@@ -1,0 +1,80 @@
+CREATE TABLE `productconfigurator`.`product` (
+  `ProductNumber` INT NOT NULL,
+  `ProductName` VARCHAR(45) NOT NULL,
+  `ProductInfo` VARCHAR(45) NULL,
+  `PartId` INT NULL,
+  `IsRelease` INT NOT NULL,
+  PRIMARY KEY (`ProductNumber`));
+
+CREATE TABLE `productconfigurator`.`part` (
+  `PartId` INT NOT NULL,
+  `PartName` VARCHAR(45) NOT NULL,
+  `PartInfo` VARCHAR(45) NULL,
+  `PartUnit` VARCHAR(45) NULL,
+  `PartVersion` VARCHAR(45) NULL,
+  `SuperId` INT NOT NULL,
+  `ProductNumber` VARCHAR(45) NULL,
+  `IsRelease` INT NOT NULL,
+  PRIMARY KEY (`PartId`));
+
+CREATE TABLE `productconfigurator`.`parameters` (
+  `ParaId` INT NOT NULL,
+  `ParaName` VARCHAR(45) NOT NULL,
+  `ParaInfo` VARCHAR(45) NULL,
+  `ParaType` VARCHAR(45) NOT NULL,
+  `ParaValue` VARCHAR(45) NULL,
+  `ParaValField` INT NOT NULL,
+  `ParaValExp` VARCHAR(45) NULL,
+  `SuperId` INT NOT NULL,
+  `ProductNumber` INT NOT NULL,
+  `IsInput` INT NOT NULL,
+  `UserPrompt` VARCHAR(45) NULL,
+  `IsRelease` INT NOT NULL,
+  PRIMARY KEY (`ParaId`));
+
+CREATE TABLE `productconfigurator`.`constraints` (
+  `ConsId` INT NOT NULL,
+  `ConsName` VARCHAR(45) NOT NULL,
+  `Expression` VARCHAR(45) NOT NULL,
+  `Description` VARCHAR(45) NULL,
+  `Alert` VARCHAR(45) NULL,
+  `ProductNumber` INT NOT NULL,
+  `ConsType` VARCHAR(45) NULL,
+  `IsRelease` INT NOT NULL,
+  PRIMARY KEY (`ConsId`));
+
+CREATE TABLE `productconfigurator`.`userinfo` (
+  `UserId` INT NOT NULL,
+  `LoginName` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `UserName` VARCHAR(45) NOT NULL,
+  `UserLevel` INT NOT NULL,
+  `TelNum` VARCHAR(45) NULL,
+  `Addr` VARCHAR(45) NULL,
+  PRIMARY KEY (`UserId`));
+
+CREATE TABLE `productconfigurator`.`paravalue` (
+  `PvId` INT NOT NULL,
+  `ParaId` INT NOT NULL,
+  `UserId` INT NOT NULL,
+  `ParaName` VARCHAR(45) NOT NULL,
+  `ParaInfo` VARCHAR(45) NULL,
+  `ParaType` VARCHAR(45) NOT NULL,
+  `ParaValue` VARCHAR(45) NULL,
+  `ParaValField` INT NOT NULL,
+  `paraValExp` VARCHAR(45) NULL,
+  `SuperId` VARCHAR(45) NOT NULL,
+  `ProductNumber` VARCHAR(45) NOT NULL,
+  `UserPrompt` VARCHAR(45) NULL,
+  PRIMARY KEY (`PvId`));
+
+CREATE TABLE `productconfigurator`.`register` (
+  `RegId` INT NOT NULL,
+  `UserId` INT NOT NULL,
+  `ProductNumber` INT NOT NULL,
+  `ParaId` VARCHAR(45) NOT NULL,
+  `ParaValue` VARCHAR(45) NOT NULL,
+  `Checked` INT NOT NULL,
+  `RegDate` DATE NULL,
+  `Remarks` VARCHAR(45) NULL,
+  PRIMARY KEY (`RegId`));
