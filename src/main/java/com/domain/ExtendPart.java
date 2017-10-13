@@ -6,6 +6,15 @@ public class ExtendPart {
     private Part part;
     private List<Parameters> parametersList;
     private List<Part> subPartList;
+    private List<Constrains> constrainsList;
+
+    public List<Constrains> getConstrainsList() {
+        return constrainsList;
+    }
+
+    public void setConstrainsList(List<Constrains> constrainsList) {
+        this.constrainsList = constrainsList;
+    }
 
     public Part getPart() {
         return part;
@@ -30,6 +39,5 @@ public class ExtendPart {
     public void setSubPartList(List<Part> subPartList) {
         this.subPartList = subPartList;
     }
-
-
+    
 }

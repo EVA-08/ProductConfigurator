@@ -6,7 +6,7 @@ public class Part {
     private String partInfo;
     private String partUnit;
     private String partVersion;
-    private int SuperId; //SuperId值为0，则是顶层零部件，值为-1，则为独立零部件
+    private int SuperId; //SuperId值为0，则是顶层零部件
 
     public int getPartId() {
         return partId;
