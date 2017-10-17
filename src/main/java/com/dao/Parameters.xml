@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ParametersDao">
+    <resultMap id="parameters" type="com.domain.Parameters">
+        <id property="ParaId" column="ParaId"/>
+        <result property="ParaName" column="ParaName"/>
+        <result property="ParaInfo" column="ParaInfo"/>
+        <result property="ParaType" column="ParaType"/>
+        <result property="paraValue" column="ParaValue"/>
+        <result property="paraValField" column="ParaValField"/>
+        <result property="paraValExp" column="ParaValExp"/>
+        <result property="SuperId" column="SuperId"/>
+        <result property="ProductNumber" column="ProductNumber"/>
+        <result property="IsInput" column="IsInput"/>
+        <result property="UserPrompt" column="UserPrompt"/>
+        <result property="IsRelease" column="IsRelease"/>
+    </resultMap>
+    <select id="getParametersExpId" resultMap="parameters">
+        SELECT * FROM parameters WHERE ParaId = #{paraId};
+    </select>
+    <select id="getParametersExpName" resultMap="parameters">
+        SELECT * FROM parameters WHERE ParaName = #{paraName};
+    </select>
+    <insert id="insertParameter">
+        INSERT  parameters(ParaId, ParaName, ParaInfo, ParaType, ParaValue, ParaValField, ParaValExp, SuperId, ProductNumber, IsInput,UserPrompt,IsRelease)
+         VALUES (#{paraId}, #{paraName}, #{paraInfo}, #{paraType}, #{paraValue}, #{paraValField}, #{paraValExp}, #{superId}, #{productNumber}, #{isInput}, #{userPromt}, #{isRelease})
+    </insert>
+    <update id="setParaValExp">
+        UPDATE parameters SET ParaValExp = #{paraValExp} WHERE ParaId = #{paraId}
+    </update>
+    <delete id="removeParameter">
+        DELETE FROM parameters WHERE ParaId = #{paraId}
+    </delete>
+</mapper>

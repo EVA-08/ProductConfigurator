@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ConstrainsDao">
+
+    <select id="getConstrainsEx" resultType="string">
+        SELECT Expression FROM constrains WHERE ConsId = #{consId}
+    </select>
+    <update id="setConsName">
+        UPDATE constrains SET consName = #{consName} WHERE ConsId = #{consId}
+    </update>
+    <update id="setExpression">
+        UPDATE constrains set Expression = #{expression},Description = #{description} WHERE ConsId =#{consId}
+    </update>
+    <delete id="removeConstrain">
+        DELETE FROM constrains WHERE ConsId = #{consId}
+    </delete>
+    <insert id="insertConstrain">
+        INSERT constrains(ConsId, ConsName, Expression, Description, Alert, ProductNumber,ConsType,IsRelease)
+        VALUES(#{consId},#{consName}, #{expression}, #{description}, #{alert}, #{productNumber}, #{consType},#{isRelease})
+    </insert>
+</mapper>

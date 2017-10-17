@@ -25,10 +25,4 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new Filter[]{new CharacterEncodingFilter("UTF-8", true)};
     }
 
-    //设置multipart文件上传
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(
-                new MultipartConfigElement(getClass().getResource("../../../../").getFile() + "/data", 5242880, 20971520, 0));
-    }
 }

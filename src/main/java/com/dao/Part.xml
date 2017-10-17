@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PartDao">
+    <resultMap id="part" type="com.domain.Part">
+        <id property="partId" column="PartId"/>
+        <result property="partName" column="PartName"/>
+        <result property="partInfo" column="PartInfo"/>
+        <result property="partUnit" column="PartUnit"/>
+        <result property="partVersion" column="PartVersion"/>
+        <result property="SuperId" column="SuperId"/>
+        <result property="productNumber" column="ProductNumber"/>
+        <result property="IsRelease" column="IsRelease"/>
+    </resultMap>
+    <select id="getPartList" resultMap="part">
+        SELECT * FROM part WHERE PartId = #{partId}
+    </select>
+    <update id="setPartName">
+        UPDATE part SET PartName = #{partName} WHERE PartId = #{partId}
+    </update>
+    <update id="setSuperId">
+        UPDATE part SET SuperId = #{superId} WHERE PartId = #{partId}
+    </update>
+    <insert id="insertPart">
+        INSERT part(PartId, PartName, PartInfo, PartUnit, PartVersion, SuperId, ProductNumber, IsRelease)
+        VALUES (#{partId}, #{partName}, #{partInfo}, #{partUnit}, #{partVersion}, #{superId}, #{productNumber}, #{isRelease})
+    </insert>
+    <delete id="removePart">
+        DELETE FROM part WHERE PartId = #{partId}
+    </delete>
+</mapper>

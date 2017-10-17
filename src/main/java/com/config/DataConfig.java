@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.dao")
+@ComponentScan({"com.dao"})
 public class DataConfig {
     private final Environment environment;
 

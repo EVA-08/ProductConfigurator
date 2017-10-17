@@ -5,7 +5,7 @@ import java.util.List;
 public class ExtendPart {
     private Part part;
     private List<Parameters> parametersList;
-    private List<Part> subPartList;
+    private List<ExtendPart> subExtendPartList;
     private List<Constrains> constrainsList;
 
     public List<Constrains> getConstrainsList() {
@@ -32,12 +32,12 @@ public class ExtendPart {
         this.parametersList = parametersList;
     }
 
-    public List<Part> getSubPartList() {
-        return subPartList;
+    public List<ExtendPart> getSubExtendPartList() {
+        return subExtendPartList;
     }
 
-    public void setSubPartList(List<Part> subPartList) {
-        this.subPartList = subPartList;
+    public void setSubExtendPartList(List<ExtendPart> subExtendPartList) {
+        this.subExtendPartList = subExtendPartList;
     }
-    
+
 }
